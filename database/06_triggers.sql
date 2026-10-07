@@ -25,3 +25,20 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+-- =====================================================
+-- PERSON 3 - INVENTORY UPDATE TRIGGER
+-- Author - AVANDIKA K 
+-- Registration no - 25BCE2293
+-- =====================================================
+
+DELIMITER $$
+
+CREATE TRIGGER trg_inventory_update
+BEFORE UPDATE ON INVENTORY
+FOR EACH ROW
+BEGIN
+    SET NEW.last_updated = CURRENT_TIMESTAMP;
+END$$
+
+DELIMITER ;
