@@ -138,3 +138,55 @@ ON FAILURE(failure_date);
 
 CREATE INDEX idx_failure_severity
 ON FAILURE(severity);
+
+-- =====================================================
+-- PERSON 1 - AIRCRAFT & COMPONENT LIFECYCLE MODULE
+-- =====================================================
+
+-- AIRCRAFT TABLE
+CREATE TABLE AIRCRAFT (
+    aircraft_id INT AUTO_INCREMENT PRIMARY KEY,
+    registration_no VARCHAR(20) NOT NULL UNIQUE,
+    model VARCHAR(50) NOT NULL,
+    manufacturer VARCHAR(50) NOT NULL,
+    manufacture_date DATE,
+    total_flight_hours DECIMAL(10,2) DEFAULT 0,
+    total_cycles INT DEFAULT 0,
+    status VARCHAR(20) DEFAULT 'ACTIVE'
+);
+
+-- COMPONENT TABLE
+CREATE TABLE COMPONENT (
+    component_id INT AUTO_INCREMENT PRIMARY KEY,
+    serial_number VARCHAR(50) NOT NULL UNIQUE,
+    component_type VARCHAR(50) NOT NULL,
+    manufacturer VARCHAR(50) NOT NULL,
+    model VARCHAR(50),
+    service_limit_hours DECIMAL(10,2),
+    service_limit_cycles INT,
+    current_status VARCHAR(30) DEFAULT 'AVAILABLE',
+    current_location VARCHAR(100)
+);
+
+-- AIRCRAFT_COMPONENT TABLE
+CREATE TABLE AIRCRAFT_COMPONENT (
+    installation_id INT AUTO_INCREMENT PRIMARY KEY,
+    aircraft_id INT NOT NULL,
+    component_id INT NOT NULL,
+    installed_date DATE NOT NULL,
+    removed_date DATE,
+    installation_hours DECIMAL(10,2) NOT NULL,
+    removal_hours DECIMAL(10,2),
+    installation_cycles INT NOT NULL,
+    removal_cycles INT,
+    installation_reason VARCHAR(100),
+    removal_reason VARCHAR(100),
+
+    CONSTRAINT fk_ac_aircraft
+        FOREIGN KEY (aircraft_id)
+        REFERENCES AIRCRAFT(aircraft_id),
+
+    CONSTRAINT fk_ac_component
+        FOREIGN KEY (component_id)
+        REFERENCES COMPONENT(component_id)
+);
