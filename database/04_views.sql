@@ -51,3 +51,31 @@ SELECT
 FROM MAINTENANCE m
 LEFT JOIN TECHNICIAN t
     ON m.technician_id = t.technician_id;
+
+-- =====================================================
+-- PERSON 1 - COMPONENT LIFECYCLE HISTORY VIEW
+-- =====================================================
+
+CREATE VIEW component_lifecycle_history AS
+SELECT
+    ac.installation_id,
+    a.registration_no,
+    a.model AS aircraft_model,
+    c.serial_number,
+    c.component_type,
+    c.manufacturer AS component_manufacturer,
+    c.model AS component_model,
+    ac.installed_date,
+    ac.removed_date,
+    ac.installation_hours,
+    ac.removal_hours,
+    ac.installation_cycles,
+    ac.removal_cycles,
+    ac.installation_reason,
+    ac.removal_reason
+FROM AIRCRAFT_COMPONENT ac
+JOIN AIRCRAFT a
+    ON ac.aircraft_id = a.aircraft_id
+JOIN COMPONENT c
+    ON ac.component_id = c.component_id;
+
