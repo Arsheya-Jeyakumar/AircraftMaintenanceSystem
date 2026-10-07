@@ -16,10 +16,3 @@ SELECT *
 FROM TECHNICIAN
 WHERE employee_no = 'TEST_ROLLBACK';
 
--- ============================================
--- PERSON 1 - AIRCRAFT & COMPONENT TEST QUERIES
--- ============================================
-
-USE aircraft_maintenance_db;
-
--- Test 1: Display all aircraft
