@@ -138,3 +138,70 @@ ON FAILURE(failure_date);
 
 CREATE INDEX idx_failure_severity
 ON FAILURE(severity);
+
+-- =====================================================
+-- PERSON 3 - SPARE PARTS & INVENTORY MODULE
+-- =====================================================
+
+-- =====================================================
+-- SPARE_PART
+-- =====================================================
+
+CREATE TABLE SPARE_PART (
+    part_id INT AUTO_INCREMENT PRIMARY KEY,
+    part_number VARCHAR(50) NOT NULL UNIQUE,
+    part_name VARCHAR(100) NOT NULL,
+    component_type VARCHAR(50) NOT NULL,
+    supplier VARCHAR(100),
+    unit_cost DECIMAL(10,2),
+    minimum_stock INT NOT NULL
+);
+
+
+-- =====================================================
+-- INVENTORY
+-- =====================================================
+
+CREATE TABLE INVENTORY (
+    inventory_id INT AUTO_INCREMENT PRIMARY KEY,
+    part_id INT NOT NULL,
+    location VARCHAR(100) NOT NULL,
+    quantity_available INT NOT NULL,
+    last_updated DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (part_id)
+        REFERENCES SPARE_PART(part_id)
+);
+
+
+-- =====================================================
+-- ALERT
+-- =====================================================
+
+CREATE TABLE ALERT (
+    alert_id INT AUTO_INCREMENT PRIMARY KEY,
+    aircraft_id INT NULL,
+    component_id INT NULL,
+    alert_type VARCHAR(50) NOT NULL,
+    severity VARCHAR(20) NOT NULL,
+    message VARCHAR(500) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    status VARCHAR(20) DEFAULT 'OPEN'
+);
+
+
+-- =====================================================
+-- INDEXES - PERSON 3
+-- =====================================================
+
+CREATE INDEX idx_inventory_part
+ON INVENTORY(part_id);
+
+CREATE INDEX idx_inventory_quantity
+ON INVENTORY(quantity_available);
+
+CREATE INDEX idx_alert_type
+ON ALERT(alert_type);
+
+CREATE INDEX idx_alert_status
+ON ALERT(status);
