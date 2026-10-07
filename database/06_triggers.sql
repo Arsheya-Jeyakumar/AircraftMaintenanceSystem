@@ -26,25 +26,3 @@ END$$
 
 DELIMITER ;
 
--- ============================================
--- PERSON 1 - COMPONENT LIFECYCLE TRIGGER
--- ============================================
-
-DELIMITER $$
-
-CREATE TRIGGER trg_component_removal
-AFTER UPDATE ON AIRCRAFT_COMPONENT
-FOR EACH ROW
-BEGIN
-    IF NEW.removed_date IS NOT NULL
-       AND OLD.removed_date IS NULL THEN
-
-        UPDATE COMPONENT
-        SET current_status = 'AVAILABLE',
-            current_location = 'Warehouse'
-        WHERE component_id = NEW.component_id;
-
-    END IF;
-END$$
-
-DELIMITER ;
