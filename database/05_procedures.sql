@@ -1,5 +1,6 @@
 /*
-====================================================================
+Aircraft Maintenance & Component Lifecycle System
+Person 2 - Maintenance & Inspection Module
 Aircraft Maintenance & Component Lifecycle Intelligence System
 Database Management System (DBMS) Project
 
@@ -362,6 +363,36 @@ BEGIN
     ELSE
         SET p_factors = TRIM(TRAILING '; ' FROM v_explanation);
     END IF;
+END$$
+
+DELIMITER ;
+
+-- =====================================================
+-- PERSON 3 - INVENTORY ALERT PROCEDURE
+-- Auhthor - AVANDIKA K
+-- Registration number - 25BCE2293
+-- =====================================================
+
+DELIMITER $$
+
+CREATE PROCEDURE generate_low_stock_alerts()
+BEGIN
+    INSERT INTO ALERT
+    (alert_type, severity, message)
+    SELECT
+        'LOW_STOCK',
+        'HIGH',
+        CONCAT(
+            sp.part_name,
+            ' stock is below minimum level. Available: ',
+            i.quantity_available,
+            ', Minimum required: ',
+            sp.minimum_stock
+        )
+    FROM SPARE_PART sp
+    JOIN INVENTORY i
+        ON sp.part_id = i.part_id
+    WHERE i.quantity_available < sp.minimum_stock;
 END$$
 
 DELIMITER ;
