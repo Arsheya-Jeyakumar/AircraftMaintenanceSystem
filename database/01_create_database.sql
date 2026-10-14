@@ -1,12 +1,18 @@
 /*
-========================================================
-Aircraft Maintenance & Component Lifecycle System
+====================================================================
+Aircraft Maintenance & Component Lifecycle Intelligence System
+Database Management System (DBMS) Project
 
-Database Creation Script
+Project Contributors:
+- Person 1: Thunga Purushotham (Registration No: 25BCE2293 / vitstudent)
+            Aircraft & Component Lifecycle Module
+- Person 2: Arsheya Tarmia Jeyakumar (Registration No: 25BCE2629)
+            Maintenance, Inspections & Failure Module
+- Person 3: Avandika K (Registration No: 25BCE2293)
+            Spare Parts, Inventory & Risk Intelligence Module
 
-Author: ARSHEYA TARMIA JEYAKUMAR
-Registration No: 25BCE2629
-========================================================
+Script 01: Database Creation
+====================================================================
 */
 
 CREATE DATABASE IF NOT EXISTS aircraft_maintenance_db;
