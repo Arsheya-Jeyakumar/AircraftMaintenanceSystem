@@ -7,7 +7,7 @@ Script 02: Table Definitions, Constraints & Indexes
 
 Module Allocations & Contributors:
 - Person 1 (Aircraft & Component Lifecycle):
-    Author: Thunga Purushotham (vitstudent)
+    Author: Thunga Purushotham (25BCE2489)
     Tables: AIRCRAFT, COMPONENT, AIRCRAFT_COMPONENT
 - Person 2 (Maintenance, Inspections & Failures):
     Author: Arsheya Tarmia Jeyakumar (25BCE2629)
