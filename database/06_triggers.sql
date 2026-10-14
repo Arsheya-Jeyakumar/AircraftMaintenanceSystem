@@ -1,5 +1,6 @@
 /*
-====================================================================
+Aircraft Maintenance & Component Lifecycle System
+Person 2 - Maintenance & Inspection Module
 Aircraft Maintenance & Component Lifecycle Intelligence System
 Database Management System (DBMS) Project
 
@@ -212,6 +213,23 @@ BEGIN
         SIGNAL SQLSTATE '45000'
             SET MESSAGE_TEXT = 'Data Integrity Violation: Component is currently installed on an aircraft and cannot be installed again until removed.';
     END IF;
+END$$
+
+DELIMITER ;
+
+-- =====================================================
+-- PERSON 3 - INVENTORY UPDATE TRIGGER
+-- Author - AVANDIKA K 
+-- Registration no - 25BCE2293
+-- =====================================================
+
+DELIMITER $$
+
+CREATE TRIGGER trg_inventory_update
+BEFORE UPDATE ON INVENTORY
+FOR EACH ROW
+BEGIN
+    SET NEW.last_updated = CURRENT_TIMESTAMP;
 END$$
 
 DELIMITER ;
