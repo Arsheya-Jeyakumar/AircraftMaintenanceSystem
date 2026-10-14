@@ -40,7 +40,7 @@ INSERT INTO AIRCRAFT
 (aircraft_id, registration_no, model, manufacturer, manufacture_date,
  total_flight_hours, total_cycles, status)
 VALUES
-(1, 'VT-ABC', 'A320-200', 'Airbus', '2018-05-15', 5420.50, 2650, 'ACTIVE'),
+(1, 'VT-ABC', 'A320-200', 'Airbus', '2018-05-15', 26000.00, 12000, 'ACTIVE'),
 (2, 'VT-XYZ', 'B737-800', 'Boeing', '2019-08-20', 4180.25, 2020, 'ACTIVE'),
 (3, 'VT-IND', 'A350-900', 'Airbus', '2021-03-10', 2850.75, 1120, 'ACTIVE'),
 (4, 'VT-EXP', 'ATR 72-600', 'ATR', '2017-11-05', 6890.00, 4200, 'MAINTENANCE'),
@@ -163,28 +163,28 @@ INSERT INTO AIRCRAFT_COMPONENT
 VALUES
 
 -- Historical installation: APU-004 previously installed on VT-ABC and removed
-(1, 1, 4, '2022-01-10', '2024-05-18', 11000.00, 15300.00,
- 6500, 9150, 'Periodic Rotation', 'Service Limit Reached'),
+(1, 1, 4, '2018-05-15', '2024-05-18', 0.00, 15300.00,
+ 0, 9150, 'Periodic Rotation', 'Service Limit Reached'),
 
 -- Historical installation: ENG-008 previously installed on VT-XYZ and removed for overhaul
-(2, 2, 8, '2021-06-15', '2023-11-20', 8000.00, 12500.00,
- 4000, 6200, 'Initial Installation', 'Major Overhaul Required'),
+(2, 2, 8, '2021-06-15', '2023-11-20', 1800.00, 3200.00,
+ 900, 1600, 'Initial Installation', 'Major Overhaul Required'),
 
 -- Current installation: ENG-001 on VT-ABC
-(3, 1, 1, '2024-01-15', NULL, 4000.00, NULL,
- 1900, NULL, 'Engine Upgrade', NULL),
+(3, 1, 1, '2024-01-15', NULL, 15000.00, NULL,
+ 9000, NULL, 'Engine Upgrade', NULL),
 
 -- Current installation: ENG-002 on VT-EXP (near service limit)
 (4, 4, 2, '2022-04-10', NULL, 12000.00, NULL,
  7500, NULL, 'Replacement Installation', NULL),
 
 -- Current installation: LDG-003 on VT-XYZ
-(5, 2, 3, '2023-08-12', NULL, 6500.00, NULL,
- 4100, NULL, 'Gear Overhaul Replacement', NULL),
+(5, 2, 3, '2023-08-12', NULL, 3000.00, NULL,
+ 1500, NULL, 'Gear Overhaul Replacement', NULL),
 
 -- Current installation: RAD-005 on VT-ABC (recurring failure item)
-(6, 1, 5, '2024-02-01', NULL, 3100.00, NULL,
- 1400, NULL, 'System Modification', NULL),
+(6, 1, 5, '2024-02-01', NULL, 15100.00, NULL,
+ 9050, NULL, 'System Modification', NULL),
 
 -- Current installation: FMC-006 on VT-IND
 (7, 3, 6, '2023-12-05', NULL, 1800.00, NULL,
