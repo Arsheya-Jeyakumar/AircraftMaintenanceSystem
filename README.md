@@ -3,12 +3,12 @@
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 The **Aircraft Maintenance & Component Lifecycle Intelligence System** is an enterprise-grade relational database and desktop management application developed using **MySQL** and **Java / JavaFX**. The system models end-to-end commercial aviation fleet operations, managing airframes, serialized rotable components, multi-stage maintenance schedules, safety inspections, recurring failure tracking, multi-warehouse spare parts inventory, and explainable multi-factor risk scoring.
 
 ---
 
-## 👥 Module Responsibilities & Team Contributors
+##  Module Responsibilities & Team Contributors
 
 | Module & Area | Lead Contributor | Core Responsibilities & Entities |
 | :--- | :--- | :--- |
@@ -18,7 +18,7 @@ The **Aircraft Maintenance & Component Lifecycle Intelligence System** is an ent
 
 ---
 
-## 🏗️ Architecture & Technology Stack
+##  Architecture & Technology Stack
 - **Database Management System:** MySQL 8.x / 9.x (InnoDB Storage Engine)
 - **Programming Language:** Java 17+ (Compiled & validated on Java 25 LTS)
 - **GUI Framework:** JavaFX 21 (Controls, FXML, CSS)
@@ -28,7 +28,7 @@ The **Aircraft Maintenance & Component Lifecycle Intelligence System** is an ent
 
 ---
 
-## 📂 Repository Structure
+##  Repository Structure
 ```
 AircraftMaintenanceSystem/
 ├── .gitignore                          # Ignores target/, IDE files, and local secrets
@@ -59,7 +59,7 @@ AircraftMaintenanceSystem/
 
 ---
 
-## 🗄️ Relational Database Schema (10 Tables)
+##  Relational Database Schema (10 Tables)
 
 ```
 [AIRCRAFT] 1 ──── ∞ [AIRCRAFT_COMPONENT] ∞ ──── 1 [COMPONENT]
@@ -89,7 +89,7 @@ AircraftMaintenanceSystem/
 
 ---
 
-## ⚡ Database Views
+##  Database Views
 - `v_aircraft_current_components`: Displays actively installed components with elapsed flight hours and remaining hours to service limit.
 - `v_component_lifecycle_history`: Chronological lifecycle trail of all active and historical installations, operational hours, and removal reasons.
 - `v_overdue_maintenance`: Identifies maintenance tasks where `scheduled_date < CURRENT_DATE` and `status <> 'COMPLETED'`.
@@ -99,7 +99,7 @@ AircraftMaintenanceSystem/
 
 ---
 
-## 🧠 Explainable Risk Scoring Engine
+## Explainable Risk Scoring Engine
 
 The risk score is calculated dynamically in SQL (`v_risk_intelligence_summary` and `sp_generate_risk_score`) based on the following additive rules (capped at 100):
 
@@ -118,7 +118,7 @@ The risk score is calculated dynamically in SQL (`v_risk_intelligence_summary` a
 
 ---
 
-## 🚀 Setup & Execution Guide
+##  Setup & Execution Guide
 
 ### 1. Prerequisites
 - **MySQL Server 8.0+** running locally on port `3306`.
@@ -170,18 +170,18 @@ mvn javafx:run
 
 ---
 
-## 🧪 Verification & Automated Checks
+##  Verification & Automated Checks
 
 ### Checks Executed:
-- ✅ **Maven Clean Compilation:** Validated all 28 Java source files with `mvn clean compile` (`BUILD SUCCESS`).
-- ✅ **Packaging:** Generated executable JAR (`AircraftMaintenanceSystem-1.0.0.jar`) with `mvn package`.
-- ✅ **Syntax & Constraint Integrity:** Verified all foreign keys, unique keys, check constraints, cascade behaviors, and indexes.
-- ✅ **SQL Scripts Suite:** Formatted and sequenced scripts 01 through 07 for deterministic, repeatable deployment.
-- ✅ **Git Branching:** Integration branch `feature/full-system-implementation` prepared cleanly without overwriting teammate commits.
+-  **Maven Clean Compilation:** Validated all 28 Java source files with `mvn clean compile` (`BUILD SUCCESS`).
+-  **Packaging:** Generated executable JAR (`AircraftMaintenanceSystem-1.0.0.jar`) with `mvn package`.
+-  **Syntax & Constraint Integrity:** Verified all foreign keys, unique keys, check constraints, cascade behaviors, and indexes.
+-  **SQL Scripts Suite:** Formatted and sequenced scripts 01 through 07 for deterministic, repeatable deployment.
+-  **Git Branching:** Integration branch `feature/full-system-implementation` prepared cleanly without overwriting teammate commits.
 
 ---
 
-## 🔒 Security & Data Integrity
+##  Security & Data Integrity
 - All SQL operations in the Java application utilize `PreparedStatement` to prevent SQL injection.
 - Multi-step operations (e.g. component installation and removal) execute inside transactions with strict validation and rollback.
 - Database credentials are externalized and excluded from version control.
