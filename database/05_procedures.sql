@@ -7,10 +7,10 @@ Database Management System (DBMS) Project
 Script 05: Stored Procedures
 
 Required Stored Procedures:
-1. sp_get_overdue_maintenance (Person 2)
-2. sp_install_component       (Person 1)
+1. sp_get_overdue_maintenance (Person 2)-ARSHEYA
+2. sp_install_component       (Person 1)-PURUSHOTHAM
 3. sp_remove_component        (Person 1)
-4. sp_generate_risk_score     (Person 3 / Risk Intelligence Engine)
+4. sp_generate_risk_score     (Person 3 / Risk Intelligence Engine)-AVANDIKA
 ====================================================================
 */
 
