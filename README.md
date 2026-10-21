@@ -262,6 +262,6 @@ The test query suite in `database/07_test_queries.sql` tests database functional
 
 | Contributor | Registration Number | Primary Module | Implemented Entities & Deliverables |
 | :--- | :--- | :--- | :--- |
-| **Thunga Purushotham** | 25BCE2293 / vitstudent | Aircraft & Component Lifecycle | `AIRCRAFT`, `COMPONENT`, `AIRCRAFT_COMPONENT`, `sp_install_component`, `sp_remove_component`, `trg_prevent_duplicate_active_installation`, `v_aircraft_current_components`, `v_component_lifecycle_history`. |
+| **Thunga Purushotham** | 25BCE2293  | Aircraft & Component Lifecycle | `AIRCRAFT`, `COMPONENT`, `AIRCRAFT_COMPONENT`, `sp_install_component`, `sp_remove_component`, `trg_prevent_duplicate_active_installation`, `v_aircraft_current_components`, `v_component_lifecycle_history`. |
 | **Arsheya Tarmia Jeyakumar** | 25BCE2629 | Maintenance, Inspections & Failures | `TECHNICIAN`, `MAINTENANCE`, `INSPECTION`, `FAILURE`, `sp_get_overdue_maintenance`, `trg_failure_critical_alert`, `trg_maintenance_completion`, `v_overdue_maintenance`, `v_recurring_failures`. |
 | **Avandika K** | 25BCE2293 | Spare Parts, Inventory & Risk | `SPARE_PART`, `INVENTORY`, `ALERT`, `sp_generate_risk_score`, `trg_inventory_low_stock`, `v_low_stock_parts`, `v_risk_intelligence_summary`. |
